@@ -1,0 +1,16 @@
+service:
+  name: datahouse
+
+provider:
+  name: aws
+  rutime: nodejs6.10
+  stage: dev
+  region: us-east-1
+  memorySize: 128
+
+functions:
+  score:
+    handler: src/handler.handler
+    events:
+      - http: GET score
+
