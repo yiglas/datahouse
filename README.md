@@ -1,5 +1,6 @@
 # datahouse
 
+A lambda function exposed via API gateway that scores applicants by there attributes.
 
 
 ### Deploy

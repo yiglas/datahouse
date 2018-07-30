@@ -25,4 +25,4 @@ module.exports.handler = function(event, context, callback) {
         });
     }
     catch (error) { callback(error); }
-}
+};

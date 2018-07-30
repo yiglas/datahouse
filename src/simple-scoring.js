@@ -15,4 +15,4 @@ module.exports = function scoring({ name, attribute: { intelligence, strength, e
         + spicyFoodTolerance) / 40;
 
     return { name, score };
-}
+};

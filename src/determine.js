@@ -8,4 +8,4 @@ var simpleScoring = require('./simple-scoring');
  */
 module.exports = function determine(event, context) {
     return simpleScoring;
-}
+};
