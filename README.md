@@ -11,7 +11,7 @@ serverless deploy
 ```
 
 ### Test
-After running the `serverless deploy` command, you should see the new URL for the Lambda function exposed via API Gateway.
+After running the `serverless deploy` command, you should see the new URL for the Lambda function exposed via API Gateway.  Take that url and replace it with the one below.
 
 ```
 GET https://{URL from results of serverless deploy}.us-east-2.amazonaws.com/dev/score
@@ -76,5 +76,26 @@ content-type: application/json
       }
     }
   ]
+}
+```
+
+This should out put the scored applicants. which will look like: 
+
+```json
+{
+    "scoredApplicants": [
+        {
+            "name": "John",
+            "score": 0.2
+        },        
+        {
+            "name": "Jane",
+            "score": 0.4
+        },
+        {
+            "name": "Joe",
+            "score": 0.9
+        },
+    ]
 }
 ```

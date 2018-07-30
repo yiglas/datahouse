@@ -21,7 +21,7 @@ module.exports.handler = function(event, context, callback) {
 
         callback(null, {
             statusCode: 200,
-            body: JSON.stringify(scoredApplicants)
+            body: JSON.stringify({ scoredApplicants: scoredApplicants })
         });
     }
     catch (error) { callback(error); }

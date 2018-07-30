@@ -30,7 +30,7 @@ describe('calling the scoring lambda with a valid payload.', function() {
 
     it('should have the same number of applicants that were scored', function() {
         const { applicants } = JSON.parse(event.body);
-        const scoredApplicants = JSON.parse(r.body);
+        const { scoredApplicants } = JSON.parse(r.body);
         let countApplicants = applicants.length;
         let countScoredApplicants = scoredApplicants.length;
 
