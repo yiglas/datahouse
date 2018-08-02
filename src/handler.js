@@ -1,4 +1,7 @@
-var determine = require('./determine');
+const determine = require('./determine');
+const lambda = require('./lambda');
+const badResponse = require('./responses/400');
+const okResponse = require('./responses/200');
 
 /**
  * Function that will score each applicants.
@@ -7,22 +10,18 @@ var determine = require('./determine');
  * @param {*} context aws context information.
  * @param {*} callback callback function (parm1 = Error, param2 = successful response).
  */
-module.exports.handler = function(event, context, callback) {
-    console.log('score applicants');
-    console.log('event: ' + JSON.stringify(event));
-    console.log('context: ' + JSON.stringify(context));
+module.exports.handler = lambda('score applicants', (event, context) => {
+    if (!event.body)
+        return badResponse();
 
-    try {
-        const { applicants } = JSON.parse(event.body);
+    const { applicants } = JSON.parse(event.body);
 
-        const scoring = determine(event, context);
+    if (!(applicants instanceof Array))
+        return badResponse();
 
-        const scoredApplicants = applicants.map(scoring);
+    const scoring = determine(event, context);
 
-        callback(null, {
-            statusCode: 200,
-            body: JSON.stringify({ scoredApplicants: scoredApplicants })
-        });
-    }
-    catch (error) { callback(error); }
-};
+    const scoredApplicants = applicants.map(scoring);
+
+    return okResponse(JSON.stringify({ scoredApplicants }));
+});

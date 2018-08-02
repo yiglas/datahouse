@@ -6,6 +6,6 @@ var simpleScoring = require('./simple-scoring');
  * @param {*} event payload data.
  * @param {*} context aws context information.
  */
-module.exports = function determine(event, context) {
+module.exports = (event, context) => {
     return simpleScoring;
 };

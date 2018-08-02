@@ -6,7 +6,7 @@
  * 
  * @param {*} param0 The applicant's information.
  */
-module.exports = function scoring({ name, attribute: { intelligence, strength, endurance, spicyFoodTolerance } }) {
+module.exports = ({ name, attribute: { intelligence, strength, endurance, spicyFoodTolerance } }) => {
     console.log('simple-scoring: ' + JSON.stringify(name));
 
     const score = (intelligence
